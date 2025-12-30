@@ -1,0 +1,104 @@
+<section class="page-header">
+    <div class="container">
+        <div class="page-header-content">
+            <h1 class="page-title">
+                <i class="fas fa-question-circle"></i>
+                Sıkça Sorulan Sorular
+            </h1>
+            <p class="page-excerpt">Video lisanslama sürecinde merak ettiğiniz tüm soruların yanıtları burada</p>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-white" id="sss-page">
+    <div class="container" style="max-width:1100px; margin:0 auto;">
+        <?php
+        $groups = array(
+            array('title' => 'Genel', 'slug' => 'genel'),
+            array('title' => 'Başlangıç', 'slug' => 'baslangic'),
+            array('title' => 'Satıcı (İçerik Sahibi)', 'slug' => 'satici'),
+            array('title' => 'Alıcı', 'slug' => 'alici'),
+            array('title' => 'Ödemeler', 'slug' => 'odemeler'),
+        );
+        foreach ($groups as $g) {
+            echo '<div class="faq-section" style="margin-bottom:2.5rem">';
+            echo '<h3 style="margin-bottom:1rem; color: var(--primary-color);">' . esc_html($g['title']) . '</h3>';
+            $q = new WP_Query(array(
+                'post_type'      => 'faq',
+                'posts_per_page' => -1,
+                'orderby'        => array('menu_order' => 'ASC', 'title' => 'ASC'),
+                'order'          => 'ASC',
+                'tax_query'      => array(array('taxonomy' => 'faq_category', 'field' => 'slug', 'terms' => array($g['slug'])))
+            ));
+            if ($q->have_posts()) {
+                echo '<div class="faq-items">';
+                while ($q->have_posts()) {
+                    $q->the_post();
+                    $answer = apply_filters('the_content', get_the_content(null, false, get_the_ID()));
+                    echo '<div class="faq-item">';
+                    echo '<button class="faq-question" type="button" aria-expanded="false">';
+                    echo '<span class="faq-question-text">' . esc_html(get_the_title()) . '</span>';
+                    echo '<span class="faq-toggle" aria-hidden="true"></span>';
+                    echo '</button>';
+                    echo '<div class="faq-answer" hidden aria-hidden="true">' . wp_kses_post($answer) . '</div>';
+                    echo '</div>';
+                }
+                echo '</div>';
+                wp_reset_postdata();
+            } else {
+                echo '<p>Bu bölüm yakında.</p>';
+            }
+            echo '</div>';
+        }
+        ?>
+    </div>
+</section>
+
+<script>
+(function(){
+  if (window.__ViralFAQInitialized) { return; }
+  window.__ViralFAQInitialized = true;
+
+  const container = document.getElementById('sss-page');
+  if (!container) { return; }
+
+  container.addEventListener('click', function(event){
+    const button = event.target.closest('.faq-question');
+    if (!button) { return; }
+
+    const item = button.closest('.faq-item');
+    const answer = item ? item.querySelector('.faq-answer') : null;
+    const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+    container.querySelectorAll('.faq-item').forEach(function(otherItem){
+      if (otherItem !== item) {
+        otherItem.classList.remove('active');
+        const otherButton = otherItem.querySelector('.faq-question');
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        if (otherButton) { otherButton.setAttribute('aria-expanded', 'false'); }
+        if (otherAnswer) {
+          otherAnswer.setAttribute('aria-hidden', 'true');
+          otherAnswer.setAttribute('hidden', 'hidden');
+          otherAnswer.style.display = 'none';
+        }
+      }
+    });
+
+    if (!item || !answer) { return; }
+
+    if (isExpanded) {
+      item.classList.remove('active');
+      button.setAttribute('aria-expanded', 'false');
+      answer.setAttribute('aria-hidden', 'true');
+      answer.setAttribute('hidden', 'hidden');
+      answer.style.display = 'none';
+    } else {
+      item.classList.add('active');
+      button.setAttribute('aria-expanded', 'true');
+      answer.removeAttribute('hidden');
+      answer.setAttribute('aria-hidden', 'false');
+      answer.style.display = 'block';
+    }
+  });
+})();
+</script>

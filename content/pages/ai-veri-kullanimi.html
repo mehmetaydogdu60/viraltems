@@ -1,0 +1,49 @@
+<?php
+/*
+Template Name: AI / Veri Kullanımı (Persona)
+*/
+get_header();
+$contact_cta = 'Bizimle iletişime geçin';
+$aiTitle = get_option('viral_ay_persona_ai_title','AI eğitimi ve veri ihtiyaçları için gerçek dünya videoları');
+$aiSub   = get_option('viral_ay_persona_ai_sub','Etik kaynaklı, hak kapsamı tanımlı ve çeşitli senaryolarda çekilmiş videolar; deney alanları ve etik kısıtlar net.');
+$a1t = get_option('viral_ay_persona_ai_b1_title','Etik veri setleri');
+$a1d = get_option('viral_ay_persona_ai_b1_desc','KVKK/GDPR uyumlu; kullanım amacı sözleşmede belirtilen veri setleri ve meta.');
+$a2t = get_option('viral_ay_persona_ai_b2_title','Kapsamlı çeşitlilik');
+$a2d = get_option('viral_ay_persona_ai_b2_desc','Farklı ışık, hava, mekan ve konu dağılımları; eğitim için ölçeklenebilir kapsam.');
+$a3t = get_option('viral_ay_persona_ai_b3_title','Lisans kısıtları');
+$a3d = get_option('viral_ay_persona_ai_b3_desc','Model eğitimi/validasyon ayrımları, dağıtım ve alt lisans kısıtları sözleşmeyle güvence altında.');
+?>
+<section class="page-header" style="padding: 4rem 0; color:#fff; background: linear-gradient(135deg, #fb923c 0%, #f97316 60%);">
+  <div class="container">
+    <h1 class="page-title" style="margin:0 0 .5rem 0; color:#fff;"><?php echo esc_html($aiTitle); ?></h1>
+    <p class="page-excerpt" style="margin:0; opacity:.95; color:rgba(255,255,255,.95);"><?php echo esc_html($aiSub); ?></p>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-database"></i></div>
+        <h3><?php echo esc_html($a1t); ?></h3>
+        <p><?php echo esc_html($a1d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-layer-group"></i></div>
+        <h3><?php echo esc_html($a2t); ?></h3>
+        <p><?php echo esc_html($a2d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-lock"></i></div>
+        <h3><?php echo esc_html($a3t); ?></h3>
+        <p><?php echo esc_html($a3d); ?></p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a class="btn btn-primary" href="<?php echo esc_url(viral_ay_get_link('license')); ?>">
+        <i class="fas fa-envelope"></i> <?php echo esc_html($contact_cta); ?>
+      </a>
+    </div>
+  </div>
+</section>

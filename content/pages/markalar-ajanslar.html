@@ -1,0 +1,76 @@
+<?php
+/*
+Template Name: Markalar / Ajanslar (Persona)
+*/
+get_header();
+$contact_cta = 'Bizimle iletişime geçin';
+$mtitle = get_option('viral_ay_persona_brand_title','Markalar için viral içerik lisanslama');
+$msub   = get_option('viral_ay_persona_brand_sub','Kampanyalarınızda gerçek ve etkileyici anları kullanın. Hak temizliği, brand safety ve hızlı onay süreci.');
+$mb1t = get_option('viral_ay_persona_brand_b1_title','Brand Safety');
+$mb1d = get_option('viral_ay_persona_brand_b1_desc','İçerikler marka güvenliği açısından taranır; gerekli talent/property release\'ler temin edilir.');
+$mb2t = get_option('viral_ay_persona_brand_b2_title','Uygun Hak Kapsamı');
+$mb2d = get_option('viral_ay_persona_brand_b2_desc','Reklam, dijital ve sosyal mecralar için kapsam/süre/coğrafya net tanımlanır; münhasırlık opsiyonları.');
+$mb3t = get_option('viral_ay_persona_brand_b3_title','Hızlı Teklif ve Teslim');
+$mb3d = get_option('viral_ay_persona_brand_b3_desc','Brief\'e uygun örnekler, fiyat ve takvim aynı gün içinde; dosyalar hazır formatlarda iletilir.');
+?>
+<section class="page-header" style="padding: 4rem 0; color:#0f172a; background: linear-gradient(135deg, #f472b6 0%, #ec4899 60%);">
+  <div class="container">
+    <h1 class="page-title" style="margin:0 0 .5rem 0; color:#fff;"><?php echo esc_html($mtitle); ?></h1>
+    <p class="page-excerpt" style="margin:0; opacity:.95; color:rgba(255,255,255,.95);"><?php echo esc_html($msub); ?></p>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-shield-halved"></i></div>
+        <h3><?php echo esc_html($mb1t); ?></h3>
+        <p><?php echo esc_html($mb1d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+        <h3><?php echo esc_html($mb2t); ?></h3>
+        <p><?php echo esc_html($mb2d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-gauge-high"></i></div>
+        <h3><?php echo esc_html($mb3t); ?></h3>
+        <p><?php echo esc_html($mb3d); ?></p>
+      </div>
+    </div>
+
+    <div class="grid grid-2" style="margin-top:2rem;">
+      <div class="card">
+        <h3>Markalar İçin Kullanım Alanları</h3>
+        <ul style="line-height:1.9; color:var(--text-light);">
+          <li>TV ve dijital reklam kampanyaları</li>
+          <li>Sosyal medya içerikleri</li>
+          <li>PR ve kurumsal iletişim</li>
+          <li>Etkinlik ve aktivasyon içerikleri</li>
+          <li>Mağaza içi ve fuar ekranları</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Süreç</h3>
+        <ol class="va-steps">
+          <li>Brief paylaşımı</li>
+          <li>Örnekler ve fiyat teklifi</li>
+          <li>Onay ve sözleşme</li>
+          <li>Dosya teslimi</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:2rem; background: var(--bg-light);">
+      <h3>Ajanslar İçin</h3>
+      <p style="color:var(--text-light);">Müşterilerinize viral içerik çözümleri sunmak isteyen ajanslara özel partnerlik programımız ve komisyon modellerimiz bulunmaktadır.</p>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a class="btn btn-primary" href="<?php echo esc_url(viral_ay_get_link('license')); ?>">
+        <i class="fas fa-envelope"></i> <?php echo esc_html($contact_cta); ?>
+      </a>
+    </div>
+  </div>
+</section>
