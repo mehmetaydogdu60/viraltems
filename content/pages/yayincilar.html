@@ -1,0 +1,49 @@
+<?php
+/*
+Template Name: Yayıncılar (Persona)
+*/
+get_header();
+$contact_cta = 'Bizimle iletişime geçin';
+$title = get_option('viral_ay_persona_pub_title','Yayıncılar için lisanslı video kaynağı');
+$sub   = get_option('viral_ay_persona_pub_sub','Doğrulanmış UGC, hızlı teslim, açık hak kapsamı. Haber merkeziniz için güvenli ve stressiz lisanslama.');
+$b1t = get_option('viral_ay_persona_pub_b1_title','Hızlı kırılma akışı');
+$b1d = get_option('viral_ay_persona_pub_b1_desc','OSINT doğrulama ve editoryal kontrol sonrası yayınınıza uygun dosyayı ivedi şekilde sağlarız.');
+$b2t = get_option('viral_ay_persona_pub_b2_title','Açık hak kapsamı');
+$b2d = get_option('viral_ay_persona_pub_b2_desc','Süre, coğrafya ve kanal tanımları nettir. Takedown ve kullanım kayıtları izlenir.');
+$b3t = get_option('viral_ay_persona_pub_b3_title','Hızlı teslim');
+$b3d = get_option('viral_ay_persona_pub_b3_desc','Önizleme ve master dosya seçenekleri; yayın standartlarınıza göre yeniden kodlama.');
+?>
+<section class="page-header" style="padding: 4rem 0; color: #0f172a; background: linear-gradient(135deg, #fde68a 0%, #f59e0b 60%);">
+  <div class="container">
+    <h1 class="page-title" style="margin:0 0 .5rem 0; color:#0f172a;"><?php echo esc_html($title); ?></h1>
+    <p class="page-excerpt" style="margin:0; opacity:.95; color:#111827;"><?php echo esc_html($sub); ?></p>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-bolt"></i></div>
+        <h3><?php echo esc_html($b1t); ?></h3>
+        <p><?php echo esc_html($b1d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-file-contract"></i></div>
+        <h3><?php echo esc_html($b2t); ?></h3>
+        <p><?php echo esc_html($b2d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-cloud-download-alt"></i></div>
+        <h3><?php echo esc_html($b3t); ?></h3>
+        <p><?php echo esc_html($b3d); ?></p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a class="btn btn-primary" href="<?php echo esc_url(viral_ay_get_link('license')); ?>">
+        <i class="fas fa-envelope"></i> <?php echo esc_html($contact_cta); ?>
+      </a>
+    </div>
+  </div>
+</section>

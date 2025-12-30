@@ -1,0 +1,49 @@
+<?php
+/*
+Template Name: TV Prodüksiyon (Persona)
+*/
+get_header();
+$contact_cta = 'Bizimle iletişime geçin';
+$ttitle = get_option('viral_ay_persona_tv_title','TV yapımları için doğrulanmış video arşivi');
+$tsub   = get_option('viral_ay_persona_tv_sub','Belgesel, reality ve magazin formatları için binlerce gerçek an; sözleşme ve teslim süreçleri standart.');
+$tb1t = get_option('viral_ay_persona_tv_b1_title','Kategorize arşiv');
+$tb1d = get_option('viral_ay_persona_tv_b1_desc','Konulara, mekanlara ve temalara göre ayrılmış geniş UGC kataloğu; kolay keşif.');
+$tb2t = get_option('viral_ay_persona_tv_b2_title','Hukuki netlik');
+$tb2d = get_option('viral_ay_persona_tv_b2_desc','Yayın lisansları açık; müzik/üçüncü taraf unsurlar için risk analizi ve alternatifler sunulur.');
+$tb3t = get_option('viral_ay_persona_tv_b3_title','Prodüksiyon desteği');
+$tb3d = get_option('viral_ay_persona_tv_b3_desc','Bölüm planınıza uygun öneri ve toplam paket fiyatlama seçenekleri.');
+?>
+<section class="page-header" style="padding: 4rem 0; color:#fff; background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 60%);">
+  <div class="container">
+    <h1 class="page-title" style="margin:0 0 .5rem 0; color:#fff;"><?php echo esc_html($ttitle); ?></h1>
+    <p class="page-excerpt" style="margin:0; opacity:.95; color:rgba(255,255,255,.95);"><?php echo esc_html($tsub); ?></p>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-folder-tree"></i></div>
+        <h3><?php echo esc_html($tb1t); ?></h3>
+        <p><?php echo esc_html($tb1d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-scale-balanced"></i></div>
+        <h3><?php echo esc_html($tb2t); ?></h3>
+        <p><?php echo esc_html($tb2d); ?></p>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-people-carry-box"></i></div>
+        <h3><?php echo esc_html($tb3t); ?></h3>
+        <p><?php echo esc_html($tb3d); ?></p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:2rem;">
+      <a class="btn btn-primary" href="<?php echo esc_url(viral_ay_get_link('license')); ?>">
+        <i class="fas fa-envelope"></i> <?php echo esc_html($contact_cta); ?>
+      </a>
+    </div>
+  </div>
+</section>
